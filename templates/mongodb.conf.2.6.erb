@@ -135,3 +135,12 @@ operationProfiling.slowOpThresholdMs: <%= @slowms %>
 <% if @set_parameter -%>
 setParameter: <%= @set_parameter %>
 <% end -%>
+
+<% if @ssl -%>
+net.ssl.mode: requireSSL
+net.ssl.allowConnectionsWithoutCertificates: true
+net.ssl.PEMKeyFile: <%= @ssl_key %>
+<% if @ssl_ca -%>
+net.ssl.CAFile: <%= @ssl_ca %>
+<% end -%>
+<% end -%>
